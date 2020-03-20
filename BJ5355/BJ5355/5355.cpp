@@ -1,28 +1,33 @@
-#include <stdio.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
-	int T;
-	char P[4];
+	float T,N;
+	string P;
 	int temp = 0;
-	scanf("%d", &T);
+	scanf("%f", &T);
 	for (int i = 0; i < T; i++)
 	{
-		do {
-		
-		} while (getc(stdin) == ' ');
-		for (int x = 1; x < temp; x++)
+		cin >> N;
+		getline(cin, P);
+		for (int x = 0; x < P.size(); x++)
 		{
-			if (P[x] == 64)
-				P[0] *= 3;
-			if (P[x] == 37)
-				P[0] += 5;
-			if (P[x] == 35)
-				P[0] -= 7;
+			switch (P[x])
+			{
+			case '@':
+				N *= 3;
+				break;
+			case '%':
+				N += 5;
+				break;
+			case '#':
+				N -= 7;
+				break;
+			}
 		}
-		printf("%.2f", P[0]);
-		temp = 0;
+		printf("%.2f\n", N);
 	}
 
 	return 0;
